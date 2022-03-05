@@ -12,6 +12,6 @@ price = {
     }
 
 
-def get_price(name, amount):
+def get_price(name, amaunt):
     narx = price[name]
-    return narx  * amount
+    return narx  * amaunt
