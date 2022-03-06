@@ -32,8 +32,7 @@ async def orqa1(message: types.Message, state: FSMContext):
                 db.update_product(tg_id=message.from_user.id, Product=od, quantity=int(product[2]) + int(n))
             else:
                 db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
-            
-            await Kofee.product.set()
+            await Kofee.amaunt.set()
         elif cat == 'ichimlik':
             await message.answer(f"{od} <i>dan {n} ta, savatchaga🛒 qo'shildi</i>", parse_mode='html')
             await message.answer("Xo'sh <i>davom etamizmi 😍?</i>",'html', reply_markup=ichmlik)
@@ -52,33 +51,7 @@ async def orqa1(message: types.Message, state: FSMContext):
             else:
                 db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
             await Kofee.product.set()
-        # elif cat == "Salatlar":
-        #     await message.answer(f"{od} <i>dan {n} ta, Savatchaga🛒 qo'shildi</i>", parse_mode='html')
-        #     await message.answer("Xo'sh <i>davom etamizmi 😍?</i>",'html', reply_markup=ovqat)
-        #     product = db.check_product(tg_id=message.from_user.id, Product=od)
-        #     if product:
-        #         db.update_product(tg_id=message.from_user.id, Product=od, quantity=int(product[2]) + int(n))
-        #     else:
-        #         db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
-        #     await Kofee.product.set()
-        # elif cat == "Ichimliklar 🥤":
-        #     await message.answer(f"{od} <i>dan {n} ta, Savatchaga🛒 qo'shildi</i>", parse_mode='html')
-        #     await message.answer("Xo'sh <i>davom etamizmi 😍?</i>",'html', reply_markup=water)
-        #     product = db.check_product(tg_id=message.from_user.id, Product=od)
-        #     if product:
-        #         db.update_product(tg_id=message.from_user.id, Product=od, quantity=int(product[2]) + int(n))
-        #     else:
-        #         db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
-        #     await anketa.product.set()
-        # elif cat == "Sho'rva":
-        #     await message.answer(f"{od} <i>dan {n} ta, Savatchaga🛒 qo'shildi</i>", parse_mode='html')
-        #     await message.answer("Xo'sh <i>davom etamizmi 😍?</i>",'html', reply_markup=shorva)
-        #     product = db.check_product(tg_id=message.from_user.id, Product=od)
-        #     if product:
-        #         db.update_product(tg_id=message.from_user.id, Product=od, quantity=int(product[2]) + int(n))
-        #     else:
-        #         db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
-        #     await anketa.product.set()
+      
     else:
         await message.answer("Faqat son kiriting!")
         await Kofee.amaunt.set()
