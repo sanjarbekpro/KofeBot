@@ -1,8 +1,8 @@
+from loader import dp, db
 from aiogram import types
 from keyboards.default.baliq import balq
 from keyboards.default.ichimlik import ichmlik
 from keyboards.default.ovqat2 import ovqat
-from loader import dp, db
 from aiogram.dispatcher import FSMContext
 from states.kofee import Kofee
 from handlers.users.narxi import price
@@ -32,7 +32,7 @@ async def orqa1(message: types.Message, state: FSMContext):
                 db.update_product(tg_id=message.from_user.id, Product=od, quantity=int(product[2]) + int(n))
             else:
                 db.add_product(tg_id=message.from_user.id, Product=od, quantity=n)
-            await Kofee.amaunt.set()
+            await Kofee.product.set()
         elif cat == 'ichimlik':
             await message.answer(f"{od} <i>dan {n} ta, savatchaga🛒 qo'shildi</i>", parse_mode='html')
             await message.answer("Xo'sh <i>davom etamizmi 😍?</i>",'html', reply_markup=ichmlik)
